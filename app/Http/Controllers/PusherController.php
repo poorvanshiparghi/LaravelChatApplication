@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 use App\Events\PusherBroadcast;
+use Illuminate\Contracts\View\View;
 
 use Illuminate\Http\Request;
 
 class PusherController extends Controller
 {
+    public function home(){
+        return view('home');
+    }
+
     public function index(){
         return view('index');
     }

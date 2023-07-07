@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
     <meta charset="UTF-8">
-    <title>Chat Laravel Pusher | Poorvanshi's App</title>
+    <title>Laravel Chat Application</title>
     <link rel="icon" href="https://assets.edlin.app/favicon/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,10 +16,10 @@
     <!-- End CSS -->
 
 </head>
-<body>
+<body class="index_body">
     <div class="chat">
         <div class="top">
-            <img src="/storage/app/public/IMG_5884.jpg" alt="Avatar">
+            <img src="/images/IMG_5884.jpg" height="80px" width="80px" alt="Avatar">
             <div>
                 <p>Poorvanshi</p>
                 <small>Online</small>
@@ -41,16 +41,17 @@
     const channel = pusher.subscribe('public');
 
     //Recieve message
-    channel.bind('chat', function (data){
-        $.post("/receive",{
-            _token: '{{csrf_token()}}',
-            message: data.message,
-        }).done(function (res){
-            console.log(res);
-            $(".message > .message").last().after(res);
-            $(document).scrollTop($(document).height());
-        });
-    });
+    channel.bind('chat', function (data) {
+    $.post("/receive", {
+      _token:  '{{csrf_token()}}',
+      message: data.message,
+    })
+     .done(function (res) {
+       $(".messages > .message").last().after(res);
+       $(document).scrollTop($(document).height());
+     });
+  });
+
 
     //Broadcast message
     $("form").submit(function (event){
@@ -68,7 +69,7 @@
             }
         }).done(function (res){
             $(".messages > .message").last().after(res);
-            message: $("form #message").val('');
+            $("form #message").val('');
             $(document).scrollTop($(document).height());
         });
     });

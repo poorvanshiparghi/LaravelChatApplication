@@ -1,4 +1,4 @@
 <div class="left message">
-    <img src="http://assetes.edlin.app/image/rossedlin/03/rossedlin-03-100.jpg" alt="Avatar">
+    <img src="/images/IMG_5884.jpg" height="60px" width="60px" alt="Avatar">
     <p>{{ $message }}</p>
 </div>

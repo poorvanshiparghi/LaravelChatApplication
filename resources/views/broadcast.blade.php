@@ -1,4 +1,4 @@
 <div class="right message">
     <p>{{ $message }}</p>
-    <img src="/storage/app/public/IMG_5884.jpg" alt="Avatar">
+    <img src="/images/IMG_5884.jpg" height="60px" width="60px" alt="Avatar">
 </div>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset="UTF-8">
     <title>Laravel Chat Application</title>
-    <link rel="icon" href="https://assets.edlin.app/favicon/favicon.ico"/>
+    <link rel="icon" href="/images/chat_favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- JavaScript -->
@@ -42,15 +41,15 @@
 
     //Recieve message
     channel.bind('chat', function (data) {
-    $.post("/receive", {
-      _token:  '{{csrf_token()}}',
-      message: data.message,
-    })
-     .done(function (res) {
-       $(".messages > .message").last().after(res);
-       $(document).scrollTop($(document).height());
-     });
-  });
+        $.post("/receive", {
+        _token:  '{{csrf_token()}}',
+        message: data.message,
+        })
+        .done(function (res) {
+        $(".messages > .message").last().after(res);
+        $(document).scrollTop($(document).height());
+        });
+    });
 
 
     //Broadcast message

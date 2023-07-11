@@ -22,7 +22,6 @@ class PusherController extends Controller
     }
 
     public function receive(Request $request){
-        dd($request->all());
         return view('receive', ['message' => $request->get('message')]);
     }
 }

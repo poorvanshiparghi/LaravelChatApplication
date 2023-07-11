@@ -36,7 +36,7 @@
     </div>
 </body>
 <script>
-    const pusher = new Pusher('{{config('broadcasting.connections.pusher.key')}}',{cluster: 'eu'});
+    const pusher = new Pusher('{{config('broadcasting.connections.pusher.key')}}',{cluster: 'us2'});
     const channel = pusher.subscribe('public');
 
     //Recieve message

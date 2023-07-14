@@ -97,12 +97,12 @@
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-image: url('/images/bg_img.png');
+  background-image: url('/images/index_bg.png');
   background-size: cover;
 }
 
 .home_body{
-  background-image: url('/images/bg_img.png');
+  background-image: url('/images/Laravel Chat Application.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -111,15 +111,31 @@
   justify-content: center;
 }
 
-.start_chat{
+.sender {
   padding: 10px 20px;
   font-size: 18px;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #6453cf;
   color: #fff;
   border: none;
   cursor: pointer;
   animation: pulse 2s infinite;
+  position: relative;
+  left: -260px;
+  top: 18px;
+}
+.receiver {
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: #6453cf;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  position: relative;
+  left: -240px;
+  top: 18px;
 }
 
 hr {
@@ -13852,8 +13868,8 @@ textarea.form-control-lg {
   background-clip: initial;
   border: 0 !important;
   margin-top: 1.5rem !important;
-  background-color: #fff;
-  box-shadow: 0 0 3px rgba(60, 72, 88, 0.15) !important;
+  background-color: #cfc6f3;
+  box-shadow: 0 0 6px rgba(60, 72, 88, 0.15) !important;
   border-radius: 6px !important;
 }
 .chat .top {
@@ -14017,7 +14033,7 @@ textarea.form-control-lg {
   margin: 3px;
   width: 2.35rem;
   height: 2.35rem;
-  background: url("https://assets.edlin.app/icons/font-awesome/paper-plane/paper-plane-regular.svg") center no-repeat;
+  /* background: url("https://assets.edlin.app/icons/font-awesome/paper-plane/paper-plane-regular.svg") center no-repeat; */
 }
 
 @keyframes pulse {

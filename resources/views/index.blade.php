@@ -2,12 +2,13 @@
 <html lang='en'>
 <head>
     <title>Laravel Chat Application</title>
-    <link rel="icon" href="/images/chat_favicon.png"/>
+    <link rel="icon" href="/images/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- JavaScript -->
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- End JavaScript -->
 
     <!-- CSS -->
@@ -30,7 +31,8 @@
         <div class="bottom">
             <form>
                 <input type="text" name="message" id="message" placeholder="Enter message..." autocomplete="off">
-                <button type="submit"></button>
+                <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                <input type="file" class="fa fa-paperclip">
             </form>
         </div>
     </div>

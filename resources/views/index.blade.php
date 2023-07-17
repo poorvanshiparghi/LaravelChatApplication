@@ -8,20 +8,22 @@
     <!-- JavaScript -->
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
     <!-- End JavaScript -->
 
     <!-- CSS -->
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" />
     <!-- End CSS -->
 
 </head>
 <body class="index_body">
     <div class="chat">
         <div class="top">
-            <img src="/images/IMG_5884.jpg" height="80px" width="80px" alt="Avatar">
+            <img src="<?php echo $_GET['avatar'];?>" height="80px" width="80px" alt="Avatar">
             <div>
-                <p>Poorvanshi</p>
+                <p><?php echo $_GET['name'];?></p>
                 <small>Online</small>
             </div>
         </div>
@@ -30,9 +32,14 @@
         </div>
         <div class="bottom">
             <form>
-                <input type="text" name="message" id="message" placeholder="Enter message..." autocomplete="off">
-                <button type="submit"><i class="fa fa-paper-plane"></i></button>
-                <input type="file" class="fa fa-paperclip">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <input type="text" name="message" id="message" placeholder="Message" autocomplete="off" class="myCustomCss">
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="submit"><i class="fa fa-paper-plane fa-lg"></i></button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -73,6 +80,9 @@
             $("form #message").val('');
             $(document).scrollTop($(document).height());
         });
+    });
+    $('#message').emojioneArea({
+        pickerPosition: 'bottom'
     });
 </script>
 </html>

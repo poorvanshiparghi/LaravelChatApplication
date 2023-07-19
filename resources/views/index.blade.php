@@ -28,15 +28,16 @@
             </div>
         </div>
         <div class="messages">
-            @include('receive',['message' => 'Hey there!'])
+            @include('receive',['message' => '👋  Hey there! Welcome to Laravel chat application. 🤩😍🤑'])
         </div>
         <div class="bottom">
             <form>
+                <input type="hidden" name="avatar" id="avatar" value="<?php echo $_GET['avatar'];?>">
                 <div class="row">
-                    <div class="col-sm-11">
+                    <div class="col-sm-10">
                         <input type="text" name="message" id="message" placeholder="Message" autocomplete="off" class="myCustomCss">
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-2">
                         <button type="submit"><i class="fa fa-paper-plane fa-lg"></i></button>
                     </div>
                 </div>
@@ -47,12 +48,24 @@
 <script>
     const pusher = new Pusher('{{config('broadcasting.connections.pusher.key')}}',{cluster: 'us2'});
     const channel = pusher.subscribe('public');
-
+    var avatar = '';
+    if ($('#avatar').val() == '/images/user_1.gif') {
+        avatar = '/images/user_1.jpg';
+    } else {
+        avatar = '/images/user_2.jpg';
+    }
+    var avatar2 = '';
+    if ($('#avatar').val() == '/images/user_2.gif') {
+        avatar2 = '/images/user_1.jpg';
+    } else {
+        avatar2 = '/images/user_2.jpg';
+    }
     //Recieve message
     channel.bind('chat', function (data) {
         $.post("/receive", {
         _token:  '{{csrf_token()}}',
         message: data.message,
+        avatar2: avatar2
         })
         .done(function (res) {
         $(".messages > .message").last().after(res);
@@ -64,9 +77,9 @@
     //Broadcast message
     $("form").submit(function (event){
         event.preventDefault();
-
+        
         $.ajax({
-            url: "/broadcast",
+            url: "/broadcast?avatar=" + avatar,
             method: 'POST',
             headers: {
                 'X-Socket-Id': pusher.connection.socket_id
@@ -74,6 +87,7 @@
             data: {
                 _token: '{{csrf_token()}}',
                 message: $("form #message").val(),
+                avatar: avatar
             }
         }).done(function (res){
             $(".messages > .message").last().after(res);
